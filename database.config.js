@@ -1,7 +1,10 @@
 // Conexión con MongoDB
 
+import dotenv from "dotenv";
+
 import mongoose from "mongoose";
 
+dotenv.config();
 const MONGO_URI = process.env.MONGO_URI 
 
 async function connectToMongoDB() {
@@ -15,3 +18,4 @@ async function connectToMongoDB() {
 
 export default connectToMongoDB;
 
+ 
