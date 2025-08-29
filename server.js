@@ -4,6 +4,9 @@ import product_router from './routes/product.route.js';
 import dotenv from 'dotenv';
 
 
+dotenv.config();
+
+
 // Creamos la aplicación de Express
 const app = express();
 
@@ -12,8 +15,6 @@ app.use(express.json());
 
 // Conexión con MongoDB
 connectToMongoDB();
-
-dotenv.config();
 
 
 app.use('/api/products', product_router);
