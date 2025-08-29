@@ -2,11 +2,11 @@
 
 import mongoose from "mongoose";
 
-const MOGO_URI = "mongodb+srv://sabrinacinzer_db_user:l7s11YB26FQBgGOa@cluster0.v6otnn9.mongodb.net/UTN_PROYECTO_FINAL"
+const MONGO_URI = process.env.MONGO_URI 
 
 async function connectToMongoDB() {
     try {
-        await mongoose.connect(MOGO_URI);
+        await mongoose.connect(MONGO_URI);
         console.log("Conexión exitosa a MongoDB");
     } catch (error) {
         console.error("Error de conexión a MongoDB:", error);
