@@ -1,13 +1,12 @@
-// Conexión con MongoDB
-
-import dotenv from "dotenv";
-
 import mongoose from "mongoose";
 
-dotenv.config();
 const MONGO_URI = process.env.MONGO_URI 
 
 async function connectToMongoDB() {
+    if (!MONGO_URI) {
+        console.log('Falta MONGO_URI en variables de entorno');
+    }
+
     try {
         await mongoose.connect(MONGO_URI);
         console.log("Conexión exitosa a MongoDB");

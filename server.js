@@ -1,20 +1,19 @@
-import express, { response } from 'express';
+import dotenv from 'dotenv';
+import 'dotenv/config';
+
+import express from 'express';
 import connectToMongoDB from './database.config.js';
 import product_router from './routes/product.route.js';
-import dotenv from 'dotenv';
-
 
 dotenv.config();
 
+// Conexión con MongoDB
+connectToMongoDB();
 
 // Creamos la aplicación de Express
 const app = express();
-
 // Habilitamos el uso de JSON
 app.use(express.json());
-
-// Conexión con MongoDB
-connectToMongoDB();
 
 
 app.use('/api/products', product_router);
@@ -24,3 +23,4 @@ const PORT = 3000;
 app.listen(PORT, () => {
   console.log(`Server listening on http://localhost:${PORT}`);
 });
+
